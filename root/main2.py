@@ -1,18 +1,19 @@
 import random
-score = 0
+guess_score = 0
 
 while True:
     choices = ["heads", "tails"]
     value = random.choice(["Heads", "Tails"])
     coin = random.choice(choices)
     while True:
-        guess = input("Make a guess, Heads or Tails. "
+        guess = input("\nMake a guess, Heads or Tails. "
                       
-                      "If you get it wrong, you lose 1 point or don't gain points. "
+                      "\nIf you get it right, your incorrect guess score rests"
                       
-                      "If you get it right, you gain 1 point."
+                      "\nIf you get it wrong you gain 1 incorrect guess. "
                       
-                      " What is your choice? ")
+                      
+                      "\nWhat is your choice? ")
 
         guess = guess.strip().lower()
         if guess == "heads" or guess == "tails":
@@ -22,19 +23,15 @@ while True:
 
 
     if guess == coin:
-        score += 1
         print("You are correct, hooray😁")
-        print("Your score has increased by 1")
+        guess_score -= guess_score
     else:
-        score -= 1
-        if score < 0:
-            score = 0
-        # if the score is less than 0, then set it back to 0
+        guess_score += 1
         print("Incorrect, the coin landed on", coin.capitalize())
-
-        print(f" Your score is = {score}")
+    if guess_score == 3:
+        print("\nYou have made 3 incorrect guesss in a row. No more playtime.")
+        break
     again = input("Do you want to play again? (yes/no): ").strip().lower()
     if again != "yes":
         print("Thanks for playing!")
-        print(score)
         break
