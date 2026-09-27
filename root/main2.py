@@ -10,7 +10,7 @@ while True:
                       
                       "\nIf you get it right, your incorrect guess score rests"
                       
-                      "\nIf you get it wrong you gain 1 incorrect guess. "
+                      "\nIf you get it wrong, you gain 1 incorrect guess. "
                       
                       
                       "\nWhat is your choice? ")
@@ -31,7 +31,7 @@ while True:
     if guess_score == 3:
         print("\nYou have made 3 incorrect guesss in a row. No more playtime.")
         break
-    again = input("Do you want to play again? (yes/no): ").strip().lower()
+    play_again = input("Do you want to play again? (yes/no): ").strip().lower()
     if again != "yes":
         print("Thanks for playing!")
         break
